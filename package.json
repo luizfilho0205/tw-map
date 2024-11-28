@@ -1,0 +1,32 @@
+{
+  "name": "tw-map",
+  "private": false,
+  "version": "1.0.4",
+  "description": "Style mapper for more flexibility when using Tailwind CSS to build reusable components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizfilho0205/tw-map.git"
+  },
+  "keywords": [
+    "tailwind",
+    "styles",
+    "className"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizfilho0205/tw-map/issues"
+  },
+  "homepage": "https://github.com/luizfilho0205/tw-map#readme",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  }
+}

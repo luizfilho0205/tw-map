@@ -1,0 +1,14 @@
+src
+test
+tsconfig.json
+jest.config.js
+
+coverage
+
+node_modules
+
+.gitignore
+.npmignore
+.vscode
+.idea
+.cache

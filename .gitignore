@@ -1,0 +1,10 @@
+dist
+/node_modules
+.node_modules
+
+/coverage
+coverage
+
+.vscode
+.idea
+.cache

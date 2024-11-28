@@ -1,0 +1,295 @@
+import { Breakpoints, CSSSelector, FlexMaxHeight } from "../../types";
+import { MaxHeightBreakpoints } from "./MaxHeightBreakpoints";
+import { CSSProperty } from "../../Entities/CSSProperty";
+import { ClassesMapping } from "../../Entities/ClassMap";
+import { Breakable } from "../../Entities/Brekable";
+import { DefaultValue } from "../DefaultValue";
+
+export class MaxHeight
+  extends CSSProperty<Map<FlexMaxHeight, string>>
+  implements Breakable<Map<Breakpoints, Map<FlexMaxHeight, string>>>
+{
+  private constructor(
+    classesMapping: ClassesMapping<Map<FlexMaxHeight, string>>,
+    cssSelector: CSSSelector
+  ) {
+    super(classesMapping, cssSelector);
+  }
+
+  static create(selector: CSSSelector = "none") {
+    const classesMapping = new MaxHeightClassesMapping();
+    return new MaxHeight(classesMapping, selector);
+  }
+
+  public breakpoints() {
+    return MaxHeightBreakpoints.create(this.cssSelector);
+  }
+
+  public write(grow: FlexMaxHeight) {
+    return this.getClassName(grow);
+  }
+}
+
+class MaxHeightClassesMapping
+  implements ClassesMapping<Map<FlexMaxHeight, string>>
+{
+  private defaultValue: DefaultValue<FlexMaxHeight, string>;
+
+  constructor() {
+    this.defaultValue = new DefaultValue<FlexMaxHeight, string>(
+      "none",
+      "max-h-none"
+    );
+  }
+  get(selector: CSSSelector) {
+    return (
+      new Map<CSSSelector, Map<FlexMaxHeight, string>>([
+        [
+          "active",
+          new Map<FlexMaxHeight, string>([
+            [0, "active:max-h-0"],
+            ["px", "active:max-h-px"],
+            [0.5, "active:max-h-0.5"],
+            [1, "active:max-h-1"],
+            [1.5, "active:max-h-1.5"],
+            [2, "active:max-h-2"],
+            [2.5, "active:max-h-2.5"],
+            [3, "active:max-h-3"],
+            [3.5, "active:max-h-3.5"],
+            [4, "active:max-h-4"],
+            [5, "active:max-h-5"],
+            [6, "active:max-h-6"],
+            [7, "active:max-h-7"],
+            [8, "active:max-h-8"],
+            [9, "active:max-h-9"],
+            [10, "active:max-h-10"],
+            [11, "active:max-h-11"],
+            [12, "active:max-h-12"],
+            [14, "active:max-h-14"],
+            [16, "active:max-h-16"],
+            [20, "active:max-h-20"],
+            [24, "active:max-h-24"],
+            [28, "active:max-h-28"],
+            [32, "active:max-h-32"],
+            [36, "active:max-h-36"],
+            [40, "active:max-h-40"],
+            [44, "active:max-h-44"],
+            [48, "active:max-h-48"],
+            [52, "active:max-h-52"],
+            [56, "active:max-h-56"],
+            [60, "active:max-h-60"],
+            [64, "active:max-h-64"],
+            [72, "active:max-h-72"],
+            [80, "active:max-h-80"],
+            [96, "active:max-h-96"],
+            ["none", "active:max-h-none"],
+            ["full", "active:max-h-full"],
+            ["screen", "active:max-h-screen"],
+            ["svh", "active:max-h-svh"],
+            ["lvh", "active:max-h-lvh"],
+            ["dvh", "active:max-h-dvh"],
+            ["min", "active:max-h-min"],
+            ["max", "active:max-h-max"],
+            ["fit", "active:max-h-fit"],
+          ]),
+        ],
+        [
+          "disabled",
+          new Map<FlexMaxHeight, string>([
+            [0, "disabled:max-h-0"],
+            ["px", "disabled:max-h-px"],
+            [0.5, "disabled:max-h-0.5"],
+            [1, "disabled:max-h-1"],
+            [1.5, "disabled:max-h-1.5"],
+            [2, "disabled:max-h-2"],
+            [2.5, "disabled:max-h-2.5"],
+            [3, "disabled:max-h-3"],
+            [3.5, "disabled:max-h-3.5"],
+            [4, "disabled:max-h-4"],
+            [5, "disabled:max-h-5"],
+            [6, "disabled:max-h-6"],
+            [7, "disabled:max-h-7"],
+            [8, "disabled:max-h-8"],
+            [9, "disabled:max-h-9"],
+            [10, "disabled:max-h-10"],
+            [11, "disabled:max-h-11"],
+            [12, "disabled:max-h-12"],
+            [14, "disabled:max-h-14"],
+            [16, "disabled:max-h-16"],
+            [20, "disabled:max-h-20"],
+            [24, "disabled:max-h-24"],
+            [28, "disabled:max-h-28"],
+            [32, "disabled:max-h-32"],
+            [36, "disabled:max-h-36"],
+            [40, "disabled:max-h-40"],
+            [44, "disabled:max-h-44"],
+            [48, "disabled:max-h-48"],
+            [52, "disabled:max-h-52"],
+            [56, "disabled:max-h-56"],
+            [60, "disabled:max-h-60"],
+            [64, "disabled:max-h-64"],
+            [72, "disabled:max-h-72"],
+            [80, "disabled:max-h-80"],
+            [96, "disabled:max-h-96"],
+            ["none", "disabled:max-h-none"],
+            ["full", "disabled:max-h-full"],
+            ["screen", "disabled:max-h-screen"],
+            ["svh", "disabled:max-h-svh"],
+            ["lvh", "disabled:max-h-lvh"],
+            ["dvh", "disabled:max-h-dvh"],
+            ["min", "disabled:max-h-min"],
+            ["max", "disabled:max-h-max"],
+            ["fit", "disabled:max-h-fit"],
+          ]),
+        ],
+        [
+          "hover",
+          new Map<FlexMaxHeight, string>([
+            [0, "hover:max-h-0"],
+            ["px", "hover:max-h-px"],
+            [0.5, "hover:max-h-0.5"],
+            [1, "hover:max-h-1"],
+            [1.5, "hover:max-h-1.5"],
+            [2, "hover:max-h-2"],
+            [2.5, "hover:max-h-2.5"],
+            [3, "hover:max-h-3"],
+            [3.5, "hover:max-h-3.5"],
+            [4, "hover:max-h-4"],
+            [5, "hover:max-h-5"],
+            [6, "hover:max-h-6"],
+            [7, "hover:max-h-7"],
+            [8, "hover:max-h-8"],
+            [9, "hover:max-h-9"],
+            [10, "hover:max-h-10"],
+            [11, "hover:max-h-11"],
+            [12, "hover:max-h-12"],
+            [14, "hover:max-h-14"],
+            [16, "hover:max-h-16"],
+            [20, "hover:max-h-20"],
+            [24, "hover:max-h-24"],
+            [28, "hover:max-h-28"],
+            [32, "hover:max-h-32"],
+            [36, "hover:max-h-36"],
+            [40, "hover:max-h-40"],
+            [44, "hover:max-h-44"],
+            [48, "hover:max-h-48"],
+            [52, "hover:max-h-52"],
+            [56, "hover:max-h-56"],
+            [60, "hover:max-h-60"],
+            [64, "hover:max-h-64"],
+            [72, "hover:max-h-72"],
+            [80, "hover:max-h-80"],
+            [96, "hover:max-h-96"],
+            ["none", "hover:max-h-none"],
+            ["full", "hover:max-h-full"],
+            ["screen", "hover:max-h-screen"],
+            ["svh", "hover:max-h-svh"],
+            ["lvh", "hover:max-h-lvh"],
+            ["dvh", "hover:max-h-dvh"],
+            ["min", "hover:max-h-min"],
+            ["max", "hover:max-h-max"],
+            ["fit", "hover:max-h-fit"],
+          ]),
+        ],
+        [
+          "none",
+          new Map<FlexMaxHeight, string>([
+            [0, "max-h-0"],
+            ["px", "max-h-px"],
+            [0.5, "max-h-0.5"],
+            [1, "max-h-1"],
+            [1.5, "max-h-1.5"],
+            [2, "max-h-2"],
+            [2.5, "max-h-2.5"],
+            [3, "max-h-3"],
+            [3.5, "max-h-3.5"],
+            [4, "max-h-4"],
+            [5, "max-h-5"],
+            [6, "max-h-6"],
+            [7, "max-h-7"],
+            [8, "max-h-8"],
+            [9, "max-h-9"],
+            [10, "max-h-10"],
+            [11, "max-h-11"],
+            [12, "max-h-12"],
+            [14, "max-h-14"],
+            [16, "max-h-16"],
+            [20, "max-h-20"],
+            [24, "max-h-24"],
+            [28, "max-h-28"],
+            [32, "max-h-32"],
+            [36, "max-h-36"],
+            [40, "max-h-40"],
+            [44, "max-h-44"],
+            [48, "max-h-48"],
+            [52, "max-h-52"],
+            [56, "max-h-56"],
+            [60, "max-h-60"],
+            [64, "max-h-64"],
+            [72, "max-h-72"],
+            [80, "max-h-80"],
+            [96, "max-h-96"],
+            ["none", "max-h-none"],
+            ["full", "max-h-full"],
+            ["screen", "max-h-screen"],
+            ["svh", "max-h-svh"],
+            ["lvh", "max-h-lvh"],
+            ["dvh", "max-h-dvh"],
+            ["min", "max-h-min"],
+            ["max", "max-h-max"],
+            ["fit", "max-h-fit"],
+          ]),
+        ],
+        [
+          "open",
+          new Map<FlexMaxHeight, string>([
+            [0, "open:max-h-0"],
+            ["px", "open:max-h-px"],
+            [0.5, "open:max-h-0.5"],
+            [1, "open:max-h-1"],
+            [1.5, "open:max-h-1.5"],
+            [2, "open:max-h-2"],
+            [2.5, "open:max-h-2.5"],
+            [3, "open:max-h-3"],
+            [3.5, "open:max-h-3.5"],
+            [4, "open:max-h-4"],
+            [5, "open:max-h-5"],
+            [6, "open:max-h-6"],
+            [7, "open:max-h-7"],
+            [8, "open:max-h-8"],
+            [9, "open:max-h-9"],
+            [10, "open:max-h-10"],
+            [11, "open:max-h-11"],
+            [12, "open:max-h-12"],
+            [14, "open:max-h-14"],
+            [16, "open:max-h-16"],
+            [20, "open:max-h-20"],
+            [24, "open:max-h-24"],
+            [28, "open:max-h-28"],
+            [32, "open:max-h-32"],
+            [36, "open:max-h-36"],
+            [40, "open:max-h-40"],
+            [44, "open:max-h-44"],
+            [48, "open:max-h-48"],
+            [52, "open:max-h-52"],
+            [56, "open:max-h-56"],
+            [60, "open:max-h-60"],
+            [64, "open:max-h-64"],
+            [72, "open:max-h-72"],
+            [80, "open:max-h-80"],
+            [96, "open:max-h-96"],
+            ["none", "open:max-h-none"],
+            ["full", "open:max-h-full"],
+            ["screen", "open:max-h-screen"],
+            ["svh", "open:max-h-svh"],
+            ["lvh", "open:max-h-lvh"],
+            ["dvh", "open:max-h-dvh"],
+            ["min", "open:max-h-min"],
+            ["max", "open:max-h-max"],
+            ["fit", "open:max-h-fit"],
+          ]),
+        ],
+      ]).get(selector) ?? this.defaultValue.getValue()
+    );
+  }
+}
