@@ -1,7 +1,7 @@
 {
   "name": "tw-map",
   "private": false,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Style mapper for more flexibility when using Tailwind CSS to build reusable components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
